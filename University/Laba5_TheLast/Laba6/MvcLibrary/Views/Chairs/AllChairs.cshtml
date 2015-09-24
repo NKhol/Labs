@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ClassLibrary.DIC_CHAIRS>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DCH_NAME)
+        </th>
+        <td>
+            Head
+        </td>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DCH_NAME)
+        </td>
+        <td>
+            @{
+                ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+                int t = item.DCH_ID;
+                
+                string head;
+                if ((from c in ctx.PERSON_CHAIR where c.PC_CH == t select c.PERSON.PR_NAME).Any())
+                {
+                    head = (from c in ctx.PERSON_CHAIR where c.PC_CH == t select c.PERSON.PR_NAME).First();
+                }
+                else
+                {
+                    head = "-";
+                }
+                HtmlString ch_head = new HtmlString(head);
+            }
+            @ch_head
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DCH_ID }) |
+            
+            @Html.ActionLink("Delete", "Delete", new { id = item.DCH_ID })
+        </td>
+    </tr>
+}
+
+</table>

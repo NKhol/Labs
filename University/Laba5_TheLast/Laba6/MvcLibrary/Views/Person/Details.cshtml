@@ -1,0 +1,93 @@
+﻿@model ClassLibrary.PERSON
+
+@{
+    ViewBag.Title = "Details";
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PERSON</legend>
+
+    <div class="display-label">
+      <h3>   @Html.DisplayNameFor(model => model.PR_NAME):</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PR_NAME)
+    </div>
+
+    <div class="display-label">
+        <h3> Chair:</h3>
+    </div>
+    <div class="display-field">
+        @{
+            int t = Model.PR_DCH;
+            int d = Model.PR_DDG;
+            string ch = (from c in ctx.DIC_CHAIRS where c.DCH_ID == t select c.DCH_NAME).First();
+            string dg = (from c in ctx.DIC_DEGREE where c.DDG_ID == d select c.DDG_NAME).First();
+        }
+        @ch
+    </div>
+
+    <div class="display-label">
+     <h3>    @Html.DisplayNameFor(model => model.PR_POS):</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PR_POS)
+    </div>
+
+    <div class="display-label">
+       <h3> Degree:</h3>
+    </div>
+    <div class="display-field">
+        @dg
+    </div>
+
+    <div class="display-label">
+       <h3>  @Html.DisplayNameFor(model => model.PR_PH):</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PR_PH)
+    </div>
+
+    <div class="display-label">
+      <h3>   @Html.DisplayNameFor(model => model.PR_INT):</h3>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PR_INT)
+    </div>
+
+    <table>
+        <tr>
+            <td><b>Audiences:</b></td>
+            @{
+                int r = Model.PR_ID;
+                var aud = (from c in ctx.PERSON_AUDIENCE where c.PAU_PR == r select c).ToList();
+            }
+            @foreach(var item in aud)
+            {
+                <td>@item.DIC_AUDIENCE.DAU_NAME</td>
+            }
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><b>Ranks:</b></td>
+            @{
+                
+                var ran = (from c in ctx.PERSON_RANKS where c.PRS_PR == r select c).ToList();
+            }
+            @foreach (var item in ran)
+            {
+                <td>@item.DIC_RANKS.DRK_NAME</td>
+            }
+        </tr>
+    </table>
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.PR_ID }) |
+    @Html.ActionLink("Back to List", "AllPeople")
+</p>

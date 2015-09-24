@@ -1,0 +1,27 @@
+﻿@using MvcLibrary.Controllers
+@{
+    ViewBag.Title = "StartPage";
+}
+
+<h2>Start Page</h2>
+
+<table border="1" width="900">
+    <tr>
+        <th width="10%">People</th>
+        <th width="10%">Chairs</th>
+        <th width="10%">Audiences</th>
+        <th width="10%">Degree</th>
+        <th width="10%">Ranks</th>
+        <th width="10%">People&Audiences</th>
+        <th width="10%">People&Ranks</th>
+    </tr>
+    <tr>
+      <td>  @Html.ActionLink("People","AllPeople","Person")</td>
+      <td>  @Html.ActionLink("Chairs", "AllChairs", "Chairs")</td>
+      <td>  @Html.ActionLink("Audiences", "AllAudiences", "Audiences")</td>
+      <td>  @Html.ActionLink("Degrees", "AllDegrees", "Degree")</td>
+      <td>  @Html.ActionLink("Ranks", "AllRanks", "Ranks")</td>
+      <td>  @Html.ActionLink("People&Audiences", "AllRelations", "Person_Audience")</td>
+      <td>  @Html.ActionLink("People&Ranks", "AllRelations", "Person_Ranks")</td>
+    </tr>
+</table>

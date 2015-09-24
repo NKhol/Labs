@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ClassLibrary.PERSON>
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="900">
+    <tr>
+        <th width="20%">
+            @Html.DisplayNameFor(model => model.PR_NAME)
+        </th>
+        <th width="10%">
+            Chair
+        </th>
+        <th width="10%">
+            @Html.DisplayNameFor(model => model.PR_POS)
+        </th>
+        <th width="10%">
+            Degree
+        </th>
+        <th width="10%">
+            @Html.DisplayNameFor(model => model.PR_PH)
+        </th>
+        <th width="10%">
+            @Html.DisplayNameFor(model => model.PR_INT)
+        </th>
+        <th width="30%"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIC_CHAIRS.DCH_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_POS)
+        </td>
+        <td>
+            @{
+                
+                int t = item.PR_DDG;
+                string degree = (from c in ctx.DIC_DEGREE where c.DDG_ID == t select c.DDG_NAME).First();
+                HtmlString html_degree_string = new HtmlString(degree);
+            }
+            @html_degree_string
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_PH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_INT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PR_ID }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.PR_ID  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.PR_ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+    <div>
+        <h3>  @Html.ActionLink("Search", "Search")</h3>
+</div>
+

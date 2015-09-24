@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "AllDegrees";
+}
+
+<h2>AllDegrees</h2>
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>Degree</th>
+    </tr>
+
+    @foreach (var item in ctx.DIC_DEGREE.ToList())
+    {
+        <tr>
+            <td>
+                @{HtmlString deg = new HtmlString(item.DDG_NAME);}
+                @deg
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DDG_ID }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.DDG_ID })
+            </td>
+        </tr>
+    }
+
+</table>

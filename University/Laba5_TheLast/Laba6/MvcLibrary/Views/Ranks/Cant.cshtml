@@ -1,0 +1,12 @@
+﻿@model ClassLibrary.DIC_RANKS
+
+@{
+    ViewBag.Title = "Cant";
+}
+
+<h2>Problem</h2>
+
+@{
+    HtmlString s = new HtmlString("Can't do this operation with" + Model.DRK_NAME);
+}
+@s

@@ -1,0 +1,88 @@
+﻿@model ClassLibrary.PERSON
+
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+    string chair = String.Empty;
+    string degree = String.Empty;
+}
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PERSON</legend>
+
+        <div class="editor-label">
+           <h3> @Html.LabelFor(model => model.PR_NAME)</h3>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_NAME)
+            @Html.ValidationMessageFor(model => model.PR_NAME)
+        </div>
+
+        <div class="editor-label">
+            <h3>Chair:</h3>
+        </div>
+        <div class="editor-field">
+            @{
+    int r = Model.PR_DCH;
+    string sel_ch = (from c in ctx.DIC_CHAIRS where c.DCH_ID == r select c.DCH_NAME).First();
+            }
+           @Html.DropDownListFor(model => chair, new SelectList((from c in ctx.DIC_CHAIRS select c.DCH_NAME).ToList(),sel_ch))
+           @Html.ValidationMessageFor(model => chair)
+        </div>
+
+        <div class="editor-label">
+           <h3> @Html.LabelFor(model => model.PR_POS)</h3>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_POS)
+            @Html.ValidationMessageFor(model => model.PR_POS)
+        </div>
+
+        <div class="editor-label">
+            <h3>Degree:</h3>
+        </div>
+        <div class="editor-field">
+            @{
+                int t = Model.PR_DDG;
+                string sel_dg = (from c in ctx.DIC_DEGREE where c.DDG_ID == t select c.DDG_NAME).First();
+            }
+            @Html.DropDownListFor(model => degree, new SelectList((from c in ctx.DIC_DEGREE select c.DDG_NAME).ToList(),sel_dg))
+            @Html.ValidationMessageFor(model => degree)
+        </div>
+
+        <div class="editor-label">
+           <h3> @Html.LabelFor(model => model.PR_PH)</h3>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_PH)
+            @Html.ValidationMessageFor(model => model.PR_PH)
+        </div>
+
+        <div class="editor-label">
+           <h3> @Html.LabelFor(model => model.PR_INT)</h3>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_INT)
+            @Html.ValidationMessageFor(model => model.PR_INT)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllPeople")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

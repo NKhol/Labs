@@ -1,0 +1,82 @@
+﻿@model ClassLibrary.PERSON
+
+@{
+    ViewBag.Title = "Create";
+}
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+    string chair = String.Empty;
+    string degree = String.Empty;
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PERSON</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PR_NAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_NAME)
+            @Html.ValidationMessageFor(model => model.PR_NAME)
+        </div>
+
+        <div class="editor-label">
+            <h3>Chair:</h3>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => chair, new SelectList((from c in ctx.DIC_CHAIRS select c.DCH_NAME).ToList()))
+            @Html.ValidationMessageFor(model => chair)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PR_POS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_POS)
+            @Html.ValidationMessageFor(model => model.PR_POS)
+        </div>
+
+        <div class="editor-label">
+            <h3>Degree:</h3>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => degree, new SelectList((from c in ctx.DIC_DEGREE select c.DDG_NAME).ToList()))
+            @Html.ValidationMessageFor(model => degree)
+        </div>
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PR_PH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_PH)
+            @Html.ValidationMessageFor(model => model.PR_PH)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PR_INT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PR_INT)
+            @Html.ValidationMessageFor(model => model.PR_INT)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllPeople")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

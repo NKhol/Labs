@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_CyberneticsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DIC_AUDIENCE">
+          <Key>
+            <PropertyRef Name="DAU_ID" />
+          </Key>
+          <Property Name="DAU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAU_NAME" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIC_CHAIRS">
+          <Key>
+            <PropertyRef Name="DCH_ID" />
+          </Key>
+          <Property Name="DCH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DCH_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIC_DEGREE">
+          <Key>
+            <PropertyRef Name="DDG_ID" />
+          </Key>
+          <Property Name="DDG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DDG_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIC_RANKS">
+          <Key>
+            <PropertyRef Name="DRK_ID" />
+          </Key>
+          <Property Name="DRK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DRK_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="LG_LOGIN" />
+          </Key>
+          <Property Name="LG_LOGIN" Type="nchar" MaxLength="80" Nullable="false" />
+          <Property Name="LG_PASSWORD" Type="nchar" MaxLength="50" />
+          <Property Name="LG_ISADMIN" Type="int" Nullable="false" />
+          <Property Name="LG_PR" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PR_ID" />
+          </Key>
+          <Property Name="PR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PR_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PR_DCH" Type="int" Nullable="false" />
+          <Property Name="PR_POS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PR_DDG" Type="int" Nullable="false" />
+          <Property Name="PR_PH" Type="nvarchar" MaxLength="20" />
+          <Property Name="PR_INT" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="PERSON_AUDIENCE">
+          <Key>
+            <PropertyRef Name="PAU_ID" />
+          </Key>
+          <Property Name="PAU_PR" Type="int" Nullable="false" />
+          <Property Name="PAU_DAU" Type="int" Nullable="false" />
+          <Property Name="PAU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSON_CHAIR">
+          <Key>
+            <PropertyRef Name="PC_ID" />
+          </Key>
+          <Property Name="PC_PR" Type="int" Nullable="false" />
+          <Property Name="PC_CH" Type="int" Nullable="false" />
+          <Property Name="PC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSON_RANKS">
+          <Key>
+            <PropertyRef Name="PRS_ID" />
+          </Key>
+          <Property Name="PRS_PR" Type="int" Nullable="false" />
+          <Property Name="PRS_DRK" Type="int" Nullable="false" />
+          <Property Name="PRS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LOGIN_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="LOGIN">
+              <PropertyRef Name="LG_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_AUDIENCE_DIC_AUDIENCE">
+          <End Role="DIC_AUDIENCE" Type="Self.DIC_AUDIENCE" Multiplicity="1" />
+          <End Role="PERSON_AUDIENCE" Type="Self.PERSON_AUDIENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_AUDIENCE">
+              <PropertyRef Name="DAU_ID" />
+            </Principal>
+            <Dependent Role="PERSON_AUDIENCE">
+              <PropertyRef Name="PAU_DAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_AUDIENCE_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_AUDIENCE" Type="Self.PERSON_AUDIENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_AUDIENCE">
+              <PropertyRef Name="PAU_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_CHAIR_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_CHAIR" Type="Self.PERSON_CHAIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_CHAIR">
+              <PropertyRef Name="PC_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_DIC_CHAIRS">
+          <End Role="DIC_CHAIRS" Type="Self.DIC_CHAIRS" Multiplicity="1" />
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_CHAIRS">
+              <PropertyRef Name="DCH_ID" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="PR_DCH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON1" Type="Self.PERSON" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON1">
+              <PropertyRef Name="PR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_RANKS_DIC_RANKS">
+          <End Role="DIC_RANKS" Type="Self.DIC_RANKS" Multiplicity="1" />
+          <End Role="PERSON_RANKS" Type="Self.PERSON_RANKS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_RANKS">
+              <PropertyRef Name="DRK_ID" />
+            </Principal>
+            <Dependent Role="PERSON_RANKS">
+              <PropertyRef Name="PRS_DRK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_RANKS_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_RANKS" Type="Self.PERSON_RANKS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_RANKS">
+              <PropertyRef Name="PRS_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_CyberneticsModelStoreContainer">
+          <EntitySet Name="DIC_AUDIENCE" EntityType="Self.DIC_AUDIENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIC_CHAIRS" EntityType="Self.DIC_CHAIRS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIC_DEGREE" EntityType="Self.DIC_DEGREE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIC_RANKS" EntityType="Self.DIC_RANKS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON_AUDIENCE" EntityType="Self.PERSON_AUDIENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON_CHAIR" EntityType="Self.PERSON_CHAIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON_RANKS" EntityType="Self.PERSON_RANKS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LOGIN_PERSON" Association="Self.FK_LOGIN_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="LOGIN" EntitySet="LOGIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_AUDIENCE_DIC_AUDIENCE" Association="Self.FK_PERSON_AUDIENCE_DIC_AUDIENCE">
+            <End Role="DIC_AUDIENCE" EntitySet="DIC_AUDIENCE" />
+            <End Role="PERSON_AUDIENCE" EntitySet="PERSON_AUDIENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_AUDIENCE_PERSON" Association="Self.FK_PERSON_AUDIENCE_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_AUDIENCE" EntitySet="PERSON_AUDIENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_CHAIR_PERSON" Association="Self.FK_PERSON_CHAIR_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_CHAIR" EntitySet="PERSON_CHAIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_DIC_CHAIRS" Association="Self.FK_PERSON_DIC_CHAIRS">
+            <End Role="DIC_CHAIRS" EntitySet="DIC_CHAIRS" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_PERSON" Association="Self.FK_PERSON_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON1" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_RANKS_DIC_RANKS" Association="Self.FK_PERSON_RANKS_DIC_RANKS">
+            <End Role="DIC_RANKS" EntitySet="DIC_RANKS" />
+            <End Role="PERSON_RANKS" EntitySet="PERSON_RANKS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_RANKS_PERSON" Association="Self.FK_PERSON_RANKS_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_RANKS" EntitySet="PERSON_RANKS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_CyberneticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DIC_AUDIENCE">
+          <Key>
+            <PropertyRef Name="DAU_ID" />
+          </Key>
+          <Property Name="DAU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAU_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERSON_AUDIENCE" Relationship="Self.FK_PERSON_AUDIENCE_DIC_AUDIENCE" FromRole="DIC_AUDIENCE" ToRole="PERSON_AUDIENCE" />
+        </EntityType>
+        <EntityType Name="DIC_CHAIRS">
+          <Key>
+            <PropertyRef Name="DCH_ID" />
+          </Key>
+          <Property Name="DCH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DCH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSON_DIC_CHAIRS" FromRole="DIC_CHAIRS" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="DIC_DEGREE">
+          <Key>
+            <PropertyRef Name="DDG_ID" />
+          </Key>
+          <Property Name="DDG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DDG_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIC_RANKS">
+          <Key>
+            <PropertyRef Name="DRK_ID" />
+          </Key>
+          <Property Name="DRK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DRK_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERSON_RANKS" Relationship="Self.FK_PERSON_RANKS_DIC_RANKS" FromRole="DIC_RANKS" ToRole="PERSON_RANKS" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PR_ID" />
+          </Key>
+          <Property Name="PR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PR_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PR_DCH" Type="Int32" Nullable="false" />
+          <Property Name="PR_POS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PR_DDG" Type="Int32" Nullable="false" />
+          <Property Name="PR_PH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PR_INT" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DIC_CHAIRS" Relationship="Self.FK_PERSON_DIC_CHAIRS" FromRole="PERSON" ToRole="DIC_CHAIRS" />
+          <NavigationProperty Name="PERSON_AUDIENCE" Relationship="Self.FK_PERSON_AUDIENCE_PERSON" FromRole="PERSON" ToRole="PERSON_AUDIENCE" />
+          <NavigationProperty Name="PERSON_CHAIR" Relationship="Self.FK_PERSON_CHAIR_PERSON" FromRole="PERSON" ToRole="PERSON_CHAIR" />
+          <NavigationProperty Name="PERSON_RANKS" Relationship="Self.FK_PERSON_RANKS_PERSON" FromRole="PERSON" ToRole="PERSON_RANKS" />
+          <NavigationProperty Name="LOGIN" Relationship="DB_CyberneticsModel.FK_LOGIN_PERSON" FromRole="PERSON" ToRole="LOGIN" />
+          <NavigationProperty Name="PERSON1" Relationship="DB_CyberneticsModel.FK_PERSON_PERSON" FromRole="PERSON" ToRole="PERSON1" />
+          <NavigationProperty Name="PERSON2" Relationship="DB_CyberneticsModel.FK_PERSON_PERSON" FromRole="PERSON1" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="PERSON_AUDIENCE">
+          <Key>
+            <PropertyRef Name="PAU_ID" />
+          </Key>
+          <Property Name="PAU_PR" Type="Int32" Nullable="false" />
+          <Property Name="PAU_DAU" Type="Int32" Nullable="false" />
+          <Property Name="PAU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DIC_AUDIENCE" Relationship="Self.FK_PERSON_AUDIENCE_DIC_AUDIENCE" FromRole="PERSON_AUDIENCE" ToRole="DIC_AUDIENCE" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSON_AUDIENCE_PERSON" FromRole="PERSON_AUDIENCE" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="PERSON_CHAIR">
+          <Key>
+            <PropertyRef Name="PC_ID" />
+          </Key>
+          <Property Name="PC_PR" Type="Int32" Nullable="false" />
+          <Property Name="PC_CH" Type="Int32" Nullable="false" />
+          <Property Name="PC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSON_CHAIR_PERSON" FromRole="PERSON_CHAIR" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="PERSON_RANKS">
+          <Key>
+            <PropertyRef Name="PRS_ID" />
+          </Key>
+          <Property Name="PRS_PR" Type="Int32" Nullable="false" />
+          <Property Name="PRS_DRK" Type="Int32" Nullable="false" />
+          <Property Name="PRS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DIC_RANKS" Relationship="Self.FK_PERSON_RANKS_DIC_RANKS" FromRole="PERSON_RANKS" ToRole="DIC_RANKS" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSON_RANKS_PERSON" FromRole="PERSON_RANKS" ToRole="PERSON" />
+        </EntityType>
+        <Association Name="FK_PERSON_AUDIENCE_DIC_AUDIENCE">
+          <End Role="DIC_AUDIENCE" Type="Self.DIC_AUDIENCE" Multiplicity="1" />
+          <End Role="PERSON_AUDIENCE" Type="Self.PERSON_AUDIENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_AUDIENCE">
+              <PropertyRef Name="DAU_ID" />
+            </Principal>
+            <Dependent Role="PERSON_AUDIENCE">
+              <PropertyRef Name="PAU_DAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_DIC_CHAIRS">
+          <End Role="DIC_CHAIRS" Type="Self.DIC_CHAIRS" Multiplicity="1" />
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_CHAIRS">
+              <PropertyRef Name="DCH_ID" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="PR_DCH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_RANKS_DIC_RANKS">
+          <End Role="DIC_RANKS" Type="Self.DIC_RANKS" Multiplicity="1" />
+          <End Role="PERSON_RANKS" Type="Self.PERSON_RANKS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIC_RANKS">
+              <PropertyRef Name="DRK_ID" />
+            </Principal>
+            <Dependent Role="PERSON_RANKS">
+              <PropertyRef Name="PRS_DRK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_AUDIENCE_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_AUDIENCE" Type="Self.PERSON_AUDIENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_AUDIENCE">
+              <PropertyRef Name="PAU_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_CHAIR_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_CHAIR" Type="Self.PERSON_CHAIR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_CHAIR">
+              <PropertyRef Name="PC_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_RANKS_PERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="PERSON_RANKS" Type="Self.PERSON_RANKS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON_RANKS">
+              <PropertyRef Name="PRS_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_CyberneticsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DIC_AUDIENCE" EntityType="Self.DIC_AUDIENCE" />
+          <EntitySet Name="DIC_CHAIRS" EntityType="Self.DIC_CHAIRS" />
+          <EntitySet Name="DIC_DEGREE" EntityType="Self.DIC_DEGREE" />
+          <EntitySet Name="DIC_RANKS" EntityType="Self.DIC_RANKS" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" />
+          <EntitySet Name="PERSON_AUDIENCE" EntityType="Self.PERSON_AUDIENCE" />
+          <EntitySet Name="PERSON_CHAIR" EntityType="Self.PERSON_CHAIR" />
+          <EntitySet Name="PERSON_RANKS" EntityType="Self.PERSON_RANKS" />
+          <AssociationSet Name="FK_PERSON_AUDIENCE_DIC_AUDIENCE" Association="Self.FK_PERSON_AUDIENCE_DIC_AUDIENCE">
+            <End Role="DIC_AUDIENCE" EntitySet="DIC_AUDIENCE" />
+            <End Role="PERSON_AUDIENCE" EntitySet="PERSON_AUDIENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_DIC_CHAIRS" Association="Self.FK_PERSON_DIC_CHAIRS">
+            <End Role="DIC_CHAIRS" EntitySet="DIC_CHAIRS" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_RANKS_DIC_RANKS" Association="Self.FK_PERSON_RANKS_DIC_RANKS">
+            <End Role="DIC_RANKS" EntitySet="DIC_RANKS" />
+            <End Role="PERSON_RANKS" EntitySet="PERSON_RANKS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_AUDIENCE_PERSON" Association="Self.FK_PERSON_AUDIENCE_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_AUDIENCE" EntitySet="PERSON_AUDIENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_CHAIR_PERSON" Association="Self.FK_PERSON_CHAIR_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_CHAIR" EntitySet="PERSON_CHAIR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_RANKS_PERSON" Association="Self.FK_PERSON_RANKS_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON_RANKS" EntitySet="PERSON_RANKS" />
+          </AssociationSet>
+          <EntitySet Name="LOGIN" EntityType="DB_CyberneticsModel.LOGIN" />
+          <AssociationSet Name="FK_LOGIN_PERSON" Association="DB_CyberneticsModel.FK_LOGIN_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="LOGIN" EntitySet="LOGIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSON_PERSON" Association="DB_CyberneticsModel.FK_PERSON_PERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="PERSON1" EntitySet="PERSON" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="LG_LOGIN" />
+          </Key>
+          <Property Name="LG_LOGIN" Type="String" Nullable="false" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="LG_PASSWORD" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LG_ISADMIN" Type="Int32" Nullable="false" />
+          <Property Name="LG_PR" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSON" Relationship="DB_CyberneticsModel.FK_LOGIN_PERSON" FromRole="LOGIN" ToRole="PERSON" />
+        </EntityType>
+        <Association Name="FK_LOGIN_PERSON">
+          <End Type="DB_CyberneticsModel.PERSON" Role="PERSON" Multiplicity="1" />
+          <End Type="DB_CyberneticsModel.LOGIN" Role="LOGIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="LOGIN">
+              <PropertyRef Name="LG_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSON_PERSON">
+          <End Type="DB_CyberneticsModel.PERSON" Role="PERSON" Multiplicity="1" />
+          <End Type="DB_CyberneticsModel.PERSON" Role="PERSON1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PR_ID" />
+            </Principal>
+            <Dependent Role="PERSON1">
+              <PropertyRef Name="PR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_CyberneticsModelStoreContainer" CdmEntityContainer="DB_CyberneticsEntities">
+          <EntitySetMapping Name="DIC_AUDIENCE">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_AUDIENCE">
+              <MappingFragment StoreEntitySet="DIC_AUDIENCE">
+                <ScalarProperty Name="DAU_ID" ColumnName="DAU_ID" />
+                <ScalarProperty Name="DAU_NAME" ColumnName="DAU_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIC_CHAIRS">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_CHAIRS">
+              <MappingFragment StoreEntitySet="DIC_CHAIRS">
+                <ScalarProperty Name="DCH_ID" ColumnName="DCH_ID" />
+                <ScalarProperty Name="DCH_NAME" ColumnName="DCH_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIC_DEGREE">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_DEGREE">
+              <MappingFragment StoreEntitySet="DIC_DEGREE">
+                <ScalarProperty Name="DDG_ID" ColumnName="DDG_ID" />
+                <ScalarProperty Name="DDG_NAME" ColumnName="DDG_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIC_RANKS">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_RANKS">
+              <MappingFragment StoreEntitySet="DIC_RANKS">
+                <ScalarProperty Name="DRK_ID" ColumnName="DRK_ID" />
+                <ScalarProperty Name="DRK_NAME" ColumnName="DRK_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON">
+              <MappingFragment StoreEntitySet="PERSON">
+                <ScalarProperty Name="PR_ID" ColumnName="PR_ID" />
+                <ScalarProperty Name="PR_NAME" ColumnName="PR_NAME" />
+                <ScalarProperty Name="PR_DCH" ColumnName="PR_DCH" />
+                <ScalarProperty Name="PR_POS" ColumnName="PR_POS" />
+                <ScalarProperty Name="PR_DDG" ColumnName="PR_DDG" />
+                <ScalarProperty Name="PR_PH" ColumnName="PR_PH" />
+                <ScalarProperty Name="PR_INT" ColumnName="PR_INT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON_AUDIENCE">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_AUDIENCE">
+              <MappingFragment StoreEntitySet="PERSON_AUDIENCE">
+                <ScalarProperty Name="PAU_PR" ColumnName="PAU_PR" />
+                <ScalarProperty Name="PAU_DAU" ColumnName="PAU_DAU" />
+                <ScalarProperty Name="PAU_ID" ColumnName="PAU_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON_CHAIR">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_CHAIR">
+              <MappingFragment StoreEntitySet="PERSON_CHAIR">
+                <ScalarProperty Name="PC_PR" ColumnName="PC_PR" />
+                <ScalarProperty Name="PC_CH" ColumnName="PC_CH" />
+                <ScalarProperty Name="PC_ID" ColumnName="PC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON_RANKS">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_RANKS">
+              <MappingFragment StoreEntitySet="PERSON_RANKS">
+                <ScalarProperty Name="PRS_PR" ColumnName="PRS_PR" />
+                <ScalarProperty Name="PRS_DRK" ColumnName="PRS_DRK" />
+                <ScalarProperty Name="PRS_ID" ColumnName="PRS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGIN">
+            <EntityTypeMapping TypeName="DB_CyberneticsModel.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="LG_PR" ColumnName="LG_PR" />
+                <ScalarProperty Name="LG_ISADMIN" ColumnName="LG_ISADMIN" />
+                <ScalarProperty Name="LG_PASSWORD" ColumnName="LG_PASSWORD" />
+                <ScalarProperty Name="LG_LOGIN" ColumnName="LG_LOGIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

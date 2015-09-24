@@ -1,0 +1,10 @@
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\ClassLibrary.dll.config
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\EntityFramework.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\EntityFramework.xml
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache

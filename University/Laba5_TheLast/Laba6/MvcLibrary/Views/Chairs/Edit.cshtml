@@ -1,0 +1,60 @@
+﻿@model ClassLibrary.DIC_CHAIRS
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+    string head = String.Empty;
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DIC_CHAIRS</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DCH_NAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DCH_NAME)
+            @Html.ValidationMessageFor(model => model.DCH_NAME)
+        </div>
+        <p>Head</p>
+        
+        <div class="editor-field">
+            @{
+    int t = Model.DCH_ID;
+    if((from c in ctx.PERSON_CHAIR where c.PC_CH == t select c).Any())
+    {
+        string h = (from c in ctx.PERSON_CHAIR where c.PC_CH == t select c.PERSON.PR_NAME).First();
+        @Html.DropDownListFor(model => head, new SelectList((from c in ctx.PERSON select c.PR_NAME).ToList(),h ))
+            @Html.ValidationMessageFor(model => head)
+    }
+    else
+    {
+        @Html.DropDownListFor(model => head, new SelectList((from c in ctx.PERSON select c.PR_NAME).ToList() ))
+            @Html.ValidationMessageFor(model => head)
+    }
+            }
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllChairs")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+   
+}

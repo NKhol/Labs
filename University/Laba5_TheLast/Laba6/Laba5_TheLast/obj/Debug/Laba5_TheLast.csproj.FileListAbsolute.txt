@@ -1,0 +1,33 @@
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\Laba5_TheLast.exe.config
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\Laba5_TheLast.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\Laba5_TheLast.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.csprojResolveAssemblyReference.cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.Properties.Resources.resources
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.csproj.GenerateResource.Cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\EntityFramework.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\EntityFramework.xml
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\ClassLibrary.dll
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\bin\Debug\ClassLibrary.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba5_TheLast\obj\Debug\Laba5_TheLast.Form1.resources
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba5_TheLast\bin\Debug\Laba5_TheLast.exe.config
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba5_TheLast\obj\Debug\Laba5_TheLast.exe
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba5_TheLast\obj\Debug\Laba5_TheLast.pdb
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\Laba5_TheLast.exe.config
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.exe
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.pdb
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\Laba5_TheLast.exe
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\Laba5_TheLast.pdb
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\ClassLibrary.dll
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\EntityFramework.dll
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\ClassLibrary.pdb
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\EntityFramework.xml
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.csprojResolveAssemblyReference.cache
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.Form1.resources
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.Properties.Resources.resources
+C:\Users\nazar\Documents\GitHub\Un\Laba5_TheLast\Laba6\Laba5_TheLast\obj\Debug\Laba5_TheLast.csproj.GenerateResource.Cache

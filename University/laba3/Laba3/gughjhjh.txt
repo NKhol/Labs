@@ -1,0 +1,16 @@
+<TR> 
+        <TD>
+          <b>Name</b>
+        </TD>
+        <TD>
+          <xsl:value-of select="@NAME"/>
+        </TD>
+      </TR>
+      <TR>
+        <TD>
+          <b>Position</b>
+        </TD>
+        <TD>
+          <xsl:value-of select="@POSITION"/>
+        </TD>
+      </TR>

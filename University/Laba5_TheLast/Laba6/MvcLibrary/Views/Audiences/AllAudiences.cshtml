@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ClassLibrary.DIC_AUDIENCE>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DAU_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DAU_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DAU_ID }) |
+            
+            @Html.ActionLink("Delete", "Delete", new {id= item.DAU_ID })
+        </td>
+    </tr>
+}
+
+</table>

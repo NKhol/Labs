@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4cd446e3af654a709327a659dd4b9856" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_CyberneticsModel.DIC_AUDIENCE" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.DIC_CHAIRS" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.DIC_DEGREE" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.DIC_RANKS" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.PERSON" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.PERSON_AUDIENCE" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.PERSON_CHAIR" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.PERSON_RANKS" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_AUDIENCE_DIC_AUDIENCE" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_DIC_CHAIRS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_RANKS_DIC_RANKS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_AUDIENCE_PERSON" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_CHAIR_PERSON" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_RANKS_PERSON" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_CyberneticsModel.LOGIN" Width="1.5" PointX="5.25" PointY="9" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_LOGIN_PERSON" />
+        <AssociationConnector Association="DB_CyberneticsModel.FK_PERSON_PERSON" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

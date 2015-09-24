@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+    string name = String.Empty, chair = String.Empty, degree = String.Empty, rank = String.Empty, audience = String.Empty;
+
+    List<string> namelist = (from c in ctx.PERSON select c.PR_NAME).ToList();
+    List<string> chairlist = (from c in ctx.DIC_CHAIRS select c.DCH_NAME).ToList();
+    List<string> degreelist = (from c in ctx.DIC_DEGREE select c.DDG_NAME).ToList();
+    List<string> ranklist = (from c in ctx.DIC_RANKS select c.DRK_NAME).ToList();
+    List<string> audiencelist = (from c in ctx.DIC_AUDIENCE select c.DAU_NAME).ToList();
+
+    namelist.Add(String.Empty);
+    chairlist.Add(String.Empty);
+    degreelist.Add(String.Empty);
+    ranklist.Add(String.Empty);
+    audiencelist.Add(String.Empty);
+    
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PERSON</legend>
+        
+        <div class="editor-field">
+            <label>
+                Name:
+            </label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => name, new SelectList(namelist,String.Empty))
+            @Html.ValidationMessageFor(model => name)
+        </div>
+        
+        <div class="editor-field">
+            <label>
+                Chair:
+            </label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => chair, new SelectList(chairlist, String.Empty))
+            @Html.ValidationMessageFor(model => chair)
+        </div>
+
+        <div class="editor-field">
+            <label>
+                Degree:
+            </label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => degree, new SelectList(degreelist, String.Empty))
+            @Html.ValidationMessageFor(model => degree)
+        </div>
+
+        <div class="editor-field">
+            <label>
+                Rank:
+            </label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => rank, new SelectList(ranklist, String.Empty))
+            @Html.ValidationMessageFor(model => rank)
+        </div>
+
+        <div class="editor-field">
+            <label>
+                Audience:
+            </label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => audience, new SelectList(audiencelist, String.Empty))
+            @Html.ValidationMessageFor(model => audience)
+        </div>
+
+        
+
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+       
+        <div id="t">
+
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllPeople")
+</div>
+
+<script>
+    function GetRes()
+    {
+        
+        alert("Bla");
+    }
+</script>

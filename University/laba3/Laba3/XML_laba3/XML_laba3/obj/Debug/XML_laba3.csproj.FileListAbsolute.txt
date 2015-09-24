@@ -1,0 +1,12 @@
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\bin\Debug\XML_laba3.exe.config
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\bin\Debug\XML_laba3.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\bin\Debug\XML_laba3.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.csprojResolveAssemblyReference.cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.Properties.Resources.resources
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.csproj.GenerateResource.Cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.MainWindow.resources
+C:\Users\nazar\Documents\GitHub\Un\laba3\Laba3\XML_laba3\XML_laba3\bin\Debug\XML_laba3.exe.config
+C:\Users\nazar\Documents\GitHub\Un\laba3\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.exe
+C:\Users\nazar\Documents\GitHub\Un\laba3\Laba3\XML_laba3\XML_laba3\obj\Debug\XML_laba3.pdb

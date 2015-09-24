@@ -1,0 +1,47 @@
+﻿@model ClassLibrary.PERSON_AUDIENCE
+
+@{
+    ViewBag.Title = "Create";
+}
+@{
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+    string head = String.Empty;
+    string audience = String.Empty;
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PERSON_AUDIENCE</legend>
+
+    
+        <p>Person</p>
+
+        <div class="editor-field">
+            @Html.DropDownListFor(model => head, new SelectList((from c in ctx.PERSON select c.PR_NAME).ToList()))
+            @Html.ValidationMessageFor(model => head)
+        </div>
+        <p>Audience</p>
+
+        <div class="editor-field">
+            @Html.DropDownListFor(model => audience, new SelectList((from c in ctx.DIC_AUDIENCE select c.DAU_NAME).ToList()))
+            @Html.ValidationMessageFor(model => audience)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllRelations")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

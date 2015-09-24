@@ -1,0 +1,151 @@
+
+  <department ID ="5" NANE ="Кафедра Прикладної статистики">
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    
+  </department>
+  <department ID ="6" NANE ="Кафедра Математичної інформатики">
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    
+  </department>
+  <department ID ="7" NANE ="Кафедра Теоретичної кібернетики">
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    
+  </department>
+  <department ID ="8" NANE ="Кафедра Теорії та технології програмування">
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    
+  </department>
+  <department ID ="9" NANE ="Кафедра Інформаційних систем">
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    <employee ID =""
+              NAME="" 
+              POSITION ="" 
+              DEGREE ="" 
+              AUDIENCE ="" 
+              PHONE=""
+              INTERESTS ="">
+      <rank RANK =""></rank>
+    </employee>
+    
+  </department>

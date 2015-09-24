@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ClassLibrary.PERSON>
+
+@{
+    ViewBag.Title = "SearchList";
+}
+
+<h2>SearchList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_DCH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_POS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_DDG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_PH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_INT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_DCH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_POS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_DDG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_PH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_INT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

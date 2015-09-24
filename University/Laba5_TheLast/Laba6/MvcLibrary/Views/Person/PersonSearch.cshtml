@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ClassLibrary.PERSON>
+
+@{
+    ViewBag.Title = "PersonSearch";
+    ClassLibrary.DB_CyberneticsEntities ctx = new ClassLibrary.DB_CyberneticsEntities();
+}
+
+<h2>PersonSearch</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PR_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_DCH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_POS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_DDG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_PH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PR_INT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIC_CHAIRS.DCH_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_POS)
+        </td>
+        <td>
+            @{
+    int d = item.PR_DDG;
+    string deg = (from c in ctx.DIC_DEGREE where c.DDG_ID == d select c.DDG_NAME).First();
+            }
+            @deg
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_PH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_INT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PR_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PR_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PR_ID })
+        </td>
+    </tr>
+}
+
+</table>

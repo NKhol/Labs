@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ClassLibrary.PERSON_RANKS>
+
+@{
+    ViewBag.Title = "AllRelations";
+}
+
+<h2>AllRelations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Person
+        </th>
+        <th>
+            Rank
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSON.PR_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIC_RANKS.DRK_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.PRS_ID }) |
+            
+            @Html.ActionLink("Delete", "Delete", new {  id=item.PRS_ID  })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model ClassLibrary.DIC_AUDIENCE
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DIC_AUDIENCE</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DAU_NAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DAU_NAME)
+            @Html.ValidationMessageFor(model => model.DAU_NAME)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "AllAudiences")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

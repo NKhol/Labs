@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_CyberneticsModelStoreContainer" CdmEntityContainer="DB_CyberneticsEntities">
+    <EntitySetMapping Name="DIC_AUDIENCE">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_AUDIENCE">
+        <MappingFragment StoreEntitySet="DIC_AUDIENCE">
+          <ScalarProperty Name="DAU_ID" ColumnName="DAU_ID" />
+          <ScalarProperty Name="DAU_NAME" ColumnName="DAU_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIC_CHAIRS">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_CHAIRS">
+        <MappingFragment StoreEntitySet="DIC_CHAIRS">
+          <ScalarProperty Name="DCH_ID" ColumnName="DCH_ID" />
+          <ScalarProperty Name="DCH_NAME" ColumnName="DCH_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIC_DEGREE">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_DEGREE">
+        <MappingFragment StoreEntitySet="DIC_DEGREE">
+          <ScalarProperty Name="DDG_ID" ColumnName="DDG_ID" />
+          <ScalarProperty Name="DDG_NAME" ColumnName="DDG_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIC_RANKS">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.DIC_RANKS">
+        <MappingFragment StoreEntitySet="DIC_RANKS">
+          <ScalarProperty Name="DRK_ID" ColumnName="DRK_ID" />
+          <ScalarProperty Name="DRK_NAME" ColumnName="DRK_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSON">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON">
+        <MappingFragment StoreEntitySet="PERSON">
+          <ScalarProperty Name="PR_ID" ColumnName="PR_ID" />
+          <ScalarProperty Name="PR_NAME" ColumnName="PR_NAME" />
+          <ScalarProperty Name="PR_DCH" ColumnName="PR_DCH" />
+          <ScalarProperty Name="PR_POS" ColumnName="PR_POS" />
+          <ScalarProperty Name="PR_DDG" ColumnName="PR_DDG" />
+          <ScalarProperty Name="PR_PH" ColumnName="PR_PH" />
+          <ScalarProperty Name="PR_INT" ColumnName="PR_INT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSON_AUDIENCE">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_AUDIENCE">
+        <MappingFragment StoreEntitySet="PERSON_AUDIENCE">
+          <ScalarProperty Name="PAU_PR" ColumnName="PAU_PR" />
+          <ScalarProperty Name="PAU_DAU" ColumnName="PAU_DAU" />
+          <ScalarProperty Name="PAU_ID" ColumnName="PAU_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSON_CHAIR">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_CHAIR">
+        <MappingFragment StoreEntitySet="PERSON_CHAIR">
+          <ScalarProperty Name="PC_PR" ColumnName="PC_PR" />
+          <ScalarProperty Name="PC_CH" ColumnName="PC_CH" />
+          <ScalarProperty Name="PC_ID" ColumnName="PC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSON_RANKS">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.PERSON_RANKS">
+        <MappingFragment StoreEntitySet="PERSON_RANKS">
+          <ScalarProperty Name="PRS_PR" ColumnName="PRS_PR" />
+          <ScalarProperty Name="PRS_DRK" ColumnName="PRS_DRK" />
+          <ScalarProperty Name="PRS_ID" ColumnName="PRS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGIN">
+      <EntityTypeMapping TypeName="DB_CyberneticsModel.LOGIN">
+        <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="LG_PR" ColumnName="LG_PR" />
+          <ScalarProperty Name="LG_ISADMIN" ColumnName="LG_ISADMIN" />
+          <ScalarProperty Name="LG_PASSWORD" ColumnName="LG_PASSWORD" />
+          <ScalarProperty Name="LG_LOGIN" ColumnName="LG_LOGIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
