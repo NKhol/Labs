@@ -1,0 +1,10 @@
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\bin\Debug\Economics.exe.config
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\bin\Debug\Economics.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\bin\Debug\Economics.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.csprojResolveAssemblyReference.cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.Form1.resources
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.Properties.Resources.resources
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.csproj.GenerateResource.Cache
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.exe
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.pdb
+C:\Users\nazar\Documents\Visual Studio 2013\Projects\Economics\obj\Debug\Economics.Form2.resources

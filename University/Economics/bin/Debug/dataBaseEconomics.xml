@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<transactionDataBase>
+  <transaction ID="0" TYPE="IN" COMENT="It's example" SUM="0" BALANCE="0">
+    <date DAY="14" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="1" TYPE="IN" COMENT="" SUM="123" BALANCE="123">
+    <date DAY="15" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="2" TYPE="IN" COMENT="" SUM="100" BALANCE="223">
+    <date DAY="15" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="3" TYPE="IN" COMENT="" SUM="123" BALANCE="346">
+    <date DAY="15" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="4" TYPE="IN" COMENT="" SUM="120" BALANCE="466">
+    <date DAY="15" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="5" TYPE="OUT" COMENT="KFC" SUM="53,5" BALANCE="412,5">
+    <date DAY="18" MONTH="4" YEAR="2015">
+    </date>
+  </transaction>
+  <transaction ID="6" TYPE="IN" COMENT="Галина подмела" SUM="200" BALANCE="612,5">
+    <date DAY="9" MONTH="5" YEAR="2015">
+    </date>
+  </transaction>
+</transactionDataBase>
